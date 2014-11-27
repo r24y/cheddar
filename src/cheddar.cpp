@@ -9,39 +9,39 @@
 enum TokenType {
 
   // String of digits `/\d+/`
-  tok_IntLiteral = 0,
+  tok_IntLiteral,
 
   // Alpha word `/[A-Za-z_]+/`
-  tok_Identifier = 1,
+  tok_Identifier,
 
   // Function declaration
-  tok_func = 2,
+  tok_func,
 
   // Denote entry function
-  tok_entry = 3,
+  tok_entry,
 
   // Return statement
-  tok_return = 4,
+  tok_return,
 
   // If/else
-  tok_if = 5,
-  tok_else = 6,
+  tok_if,
+  tok_else,
   
   // Operator `+ - <`
-  tok_Operator = 7,
+  tok_Operator,
 
   // Brackets `(){}`
-  tok_open_paren = 8,
-  tok_close_paren = 9,
-  tok_open_curly = 10,
-  tok_close_curly = 11,
+  tok_open_paren,
+  tok_close_paren,
+  tok_open_curly,
+  tok_close_curly,
 
   // Other punctuation
-  tok_colon = 12,
-  tok_semi = 13,
+  tok_colon,
+  tok_semi,
 
   // End of file
-  tok_EOF = 14
+  tok_EOF
 };
 
 struct Token {
