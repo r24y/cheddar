@@ -1,2 +1,4 @@
 bin/
 .*.sw*
+*.log
+node_modules

@@ -28,7 +28,7 @@ enum TokenType {
   // If/else
   tok_if,
   tok_else,
-  
+
   // Operator `+ - <`
   tok_Operator,
 
@@ -63,11 +63,11 @@ static void printToken (struct Token t) {
   printf("%s(%s) ", tokenName.c_str(), t.content.c_str());
 }
 
-int leftoverChar = ' ';
+int @leftoverChar = ' ';
 
 // Fetch the next token from stdin.
 static struct Token getNextToken () {
-  int lastChar = leftoverChar;
+  int lastChar = @leftoverChar;
   std::string tokText;
   struct Token token;
 
@@ -102,11 +102,11 @@ static struct Token getNextToken () {
       token.type = tok_Identifier;
     }
 
-    leftoverChar = lastChar;
+    @leftoverChar = lastChar;
 
     return token;
   }
-  
+
   if (isdigit(lastChar)) {
     // If it's a digit then we're looking for a number.
     tokText = lastChar;
@@ -115,7 +115,7 @@ static struct Token getNextToken () {
       tokText += lastChar;
     }
 
-    leftoverChar = lastChar;
+    @leftoverChar = lastChar;
 
     token.type = tok_IntLiteral;
     token.content = tokText;
@@ -134,15 +134,15 @@ static struct Token getNextToken () {
   // Deal with Mr. Slash a little differently so we
   // can properly handle comments.
   if (lastChar == '/') {
-    leftoverChar = getchar();
+    @leftoverChar = getchar();
     if (leftoverChar == '/') {
-      // We've found a line comment. Gobble all the 
+      // We've found a line comment. Gobble all the
       // characters until the end of the line.
       do {
-        leftoverChar = getchar();
-      } while (leftoverChar != EOF 
-          && leftoverChar != '\n'
-          && leftoverChar != '\r');
+        @leftoverChar = getchar();
+      } while (leftoverChar != EOF
+          && @leftoverChar != '\n'
+          && @leftoverChar != '\r');
 
       return getNextToken();
     } else if (leftoverChar == '*') {
@@ -154,7 +154,7 @@ static struct Token getNextToken () {
             break;
         }
       }
-      leftoverChar = getchar();
+      @leftoverChar = getchar();
       return getNextToken();
     }
     // If we get to this point, then it means we've got
@@ -168,7 +168,7 @@ static struct Token getNextToken () {
   }
 
   token.content = lastChar;
-  leftoverChar = getchar();
+  @leftoverChar = getchar();
 
   switch (lastChar) {
     case ':': token.type = tok_colon; break;
